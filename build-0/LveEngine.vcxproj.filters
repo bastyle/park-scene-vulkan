@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\centennial\winter2024\COMP392-graphics\projects\littleVulkanEngine-main\src\first_app.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\centennial\winter2024\COMP392-graphics\projects\littleVulkanEngine-main\src\keyboard_movement_controller.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\centennial\winter2024\COMP392-graphics\projects\littleVulkanEngine-main\src\lve_buffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\centennial\winter2024\COMP392-graphics\projects\littleVulkanEngine-main\src\lve_camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\centennial\winter2024\COMP392-graphics\projects\littleVulkanEngine-main\src\lve_descriptors.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\centennial\winter2024\COMP392-graphics\projects\littleVulkanEngine-main\src\lve_device.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\centennial\winter2024\COMP392-graphics\projects\littleVulkanEngine-main\src\lve_game_object.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\centennial\winter2024\COMP392-graphics\projects\littleVulkanEngine-main\src\lve_model.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\centennial\winter2024\COMP392-graphics\projects\littleVulkanEngine-main\src\lve_pipeline.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\centennial\winter2024\COMP392-graphics\projects\littleVulkanEngine-main\src\lve_renderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\centennial\winter2024\COMP392-graphics\projects\littleVulkanEngine-main\src\lve_swap_chain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\centennial\winter2024\COMP392-graphics\projects\littleVulkanEngine-main\src\lve_window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\centennial\winter2024\COMP392-graphics\projects\littleVulkanEngine-main\src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\centennial\winter2024\COMP392-graphics\projects\littleVulkanEngine-main\src\systems\point_light_system.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\centennial\winter2024\COMP392-graphics\projects\littleVulkanEngine-main\src\systems\simple_render_system.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\centennial\winter2024\COMP392-graphics\projects\littleVulkanEngine-main\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{07513FAD-AB45-3A86-A862-3ED5550410B8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

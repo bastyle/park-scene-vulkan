@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\centennial\winter2024\COMP392-graphics\projects\littleVulkanEngine-main\build\CMakeFiles\7b99197b1aa3183ebd13040931fea6f7\point_light.frag.spv.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\centennial\winter2024\COMP392-graphics\projects\littleVulkanEngine-main\build\CMakeFiles\7b99197b1aa3183ebd13040931fea6f7\point_light.vert.spv.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\centennial\winter2024\COMP392-graphics\projects\littleVulkanEngine-main\build\CMakeFiles\7b99197b1aa3183ebd13040931fea6f7\simple_shader.frag.spv.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\centennial\winter2024\COMP392-graphics\projects\littleVulkanEngine-main\build\CMakeFiles\7b99197b1aa3183ebd13040931fea6f7\simple_shader.vert.spv.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\centennial\winter2024\COMP392-graphics\projects\littleVulkanEngine-main\build\CMakeFiles\fd8b6c711bfb61445a0840cf03f1f3de\Shaders.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\centennial\winter2024\COMP392-graphics\projects\littleVulkanEngine-main\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\centennial\winter2024\COMP392-graphics\projects\littleVulkanEngine-main\build\CMakeFiles\Shaders" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{2EC03D7D-67F0-3EBD-A3AB-36E0AB4C1EEA}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

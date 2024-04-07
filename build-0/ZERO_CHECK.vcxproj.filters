@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\centennial\winter2024\COMP392-graphics\projects\littleVulkanEngine-main\build\CMakeFiles\fd8b6c711bfb61445a0840cf03f1f3de\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{2EC03D7D-67F0-3EBD-A3AB-36E0AB4C1EEA}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

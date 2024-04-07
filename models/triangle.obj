@@ -1,0 +1,12 @@
+# OBJ file
+
+# Vertex positions
+v 0.0 0.5 0.0
+v -0.5 -0.5 0.0
+v 0.5 -0.5 0.0
+
+# Vertex normals
+vn 0.0 0.0 1.0
+
+# Face definitions
+f 1//1 2//1 3//1

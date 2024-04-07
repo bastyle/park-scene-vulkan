@@ -1,0 +1,4 @@
+C:/centennial/winter2024/COMP392-graphics/projects/littleVulkanEngine-main/build/CMakeFiles/LveEngine.dir
+C:/centennial/winter2024/COMP392-graphics/projects/littleVulkanEngine-main/build/CMakeFiles/Shaders.dir
+C:/centennial/winter2024/COMP392-graphics/projects/littleVulkanEngine-main/build/CMakeFiles/ALL_BUILD.dir
+C:/centennial/winter2024/COMP392-graphics/projects/littleVulkanEngine-main/build/CMakeFiles/ZERO_CHECK.dir
