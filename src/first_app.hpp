@@ -26,6 +26,9 @@ class FirstApp {
 
  private:
   void loadGameObjects();
+  void loadTreeObjects();
+  void loadSolarLight();
+  void loadBenchObjects();
 
   LveWindow lveWindow{WIDTH, HEIGHT, "Vulkan Tutorial"};
   LveDevice lveDevice{lveWindow};

@@ -27,6 +27,9 @@ FirstApp::FirstApp() {
           .addPoolSize(VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, LveSwapChain::MAX_FRAMES_IN_FLIGHT)
           .build();
   loadGameObjects();
+  //loadTreeObjects();
+  loadBenchObjects();
+  loadSolarLight();
 }
 
 FirstApp::~FirstApp() {}
@@ -120,9 +123,11 @@ void FirstApp::run() {
 }
 
 void FirstApp::loadGameObjects() {
+
   std::shared_ptr<LveModel> lveModel =
       LveModel::createModelFromFile(lveDevice, "models/custom_vase.obj");
-  auto flatVase = LveGameObject::createGameObject();
+
+  /*auto flatVase = LveGameObject::createGameObject();
   flatVase.model = lveModel;
   flatVase.transform.translation = {-.5f, .5f, 0.f};
   flatVase.transform.scale = {3.f, 1.5f, 3.f};
@@ -134,7 +139,7 @@ void FirstApp::loadGameObjects() {
   smoothVase.model = lveModel;
   smoothVase.transform.translation = {.5f, .5f, 0.f};
   smoothVase.transform.scale = {3.f, 1.5f, 3.f};
-  gameObjects.emplace(smoothVase.getId(), std::move(smoothVase));
+  gameObjects.emplace(smoothVase.getId(), std::move(smoothVase));*/
 
 
   /*lveModel = LveModel::createModelFromFile(lveDevice, "models/triangle.obj");
@@ -159,7 +164,7 @@ void FirstApp::loadGameObjects() {
   gameObjects.emplace(floor.getId(), std::move(floor));*/
 
 
-
+  
   lveModel = LveModel::createModelFromFile(lveDevice, "models/simple_model.obj");
   auto characterlowpoly2 = LveGameObject::createGameObject();
   characterlowpoly2.model = lveModel;
@@ -168,13 +173,10 @@ void FirstApp::loadGameObjects() {
   characterlowpoly2.transform.scale = {.2f, .2f, .2f};
   gameObjects.emplace(characterlowpoly2.getId(), std::move(characterlowpoly2));
 
-
-  auto orangeLight = LveGameObject::makePointLight(0.2f);
-  orangeLight.color = {1.f, 0.5f, 0.f};
-  orangeLight.transform.translation = {0.f, 2.f, 0.f};
-  //gameObjects.emplace(orangeLight.getId(), std::move(orangeLight));
+  
 
 
+  /*
   std::vector<glm::vec3> lightColors{
       {1.f, .1f, .1f},
       {.1f, .1f, 1.f},
@@ -186,7 +188,7 @@ void FirstApp::loadGameObjects() {
   };
 
   for (int i = 0; i < lightColors.size(); i++) {
-    auto pointLight = LveGameObject::makePointLight(0.2f);
+    auto pointLight = LveGameObject::makePointLight(5.2f);
     pointLight.color = lightColors[i];
     auto rotateLight = glm::rotate(
         glm::mat4(1.f),
@@ -194,7 +196,50 @@ void FirstApp::loadGameObjects() {
         {0.f, -1.f, 0.f});
     pointLight.transform.translation = glm::vec3(rotateLight * glm::vec4(-1.f, -1.f, -1.f, 1.f));
     gameObjects.emplace(pointLight.getId(), std::move(pointLight));
-  }
+  }*/
+  
+
+}
+
+void FirstApp::loadSolarLight() {
+
+  auto orangeLight = LveGameObject::makePointLight(350.2f);
+  orangeLight.color = {1.f, 0.5f, 0.f};
+  //orangeLight.transform.translation = {-2.f, -20.f, -5.f};
+  orangeLight.transform.translation = {-2.f, -30.f, -5.f}; // radio? altura ?
+  //orangeLight.transform.scale = {10.f, 10.f, 10.f};
+  orangeLight.transform.scale = {1.f, 1.f, 1.f};
+  gameObjects.emplace(orangeLight.getId(), std::move(orangeLight));
+}
+
+void FirstApp::loadTreeObjects() {
+  std::shared_ptr<LveModel> lveModel =
+      LveModel::createModelFromFile(lveDevice, "models/park/Tree/3Trees.obj");  
+  auto tree = LveGameObject::createGameObject();
+  tree.model = lveModel;
+  //tree.transform.translation = {1.f, .2f, 0.f};
+  tree.transform.scale = {.1f, .1f, .1f};
+
+  tree.transform.translation = {.5f, .5f, 0.f};
+  //smoothVase.transform.scale = {3.f, 1.5f, 3.f};
+
+  //tree.transform.rotation = {0.f,0.f,5.f};
+  gameObjects.emplace(tree.getId(), std::move(tree));
+}
+
+void FirstApp::loadBenchObjects() {
+  std::shared_ptr<LveModel> lveModel =
+      //LveModel::createModelFromFile(lveDevice, "models/park/bench/bench-1.obj");
+      LveModel::createModelFromFile(lveDevice, "models/park/bush/bush-1.obj");
+  auto tree = LveGameObject::createGameObject();
+  tree.model = lveModel;
+  tree.transform.translation = {-2.f, .5f, 4.f}; // x (positivo derecha) / y (positivo-> abajo .5 base) / z profundidad
+  tree.transform.scale = {.5f, .5f, .5f};
+  tree.transform.rotation = {0.f, 2.f, 0.f}; // x inclinacion arriba abajo / giro sobre si misma / inclinacion hacia los lados
+  
+
+  // tree.transform.rotation = {0.f,0.f,5.f};
+  gameObjects.emplace(tree.getId(), std::move(tree));
 }
 
 }  // namespace lve
