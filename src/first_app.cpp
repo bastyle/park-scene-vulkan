@@ -27,8 +27,9 @@ FirstApp::FirstApp() {
           .addPoolSize(VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, LveSwapChain::MAX_FRAMES_IN_FLIGHT)
           .build();
   loadGameObjects();
-  //loadTreeObjects();
+  // loadTreeObjects();
   loadBenchObjects();
+  loadBushObjects();
   loadSolarLight();
 }
 
@@ -123,58 +124,19 @@ void FirstApp::run() {
 }
 
 void FirstApp::loadGameObjects() {
-
-  std::shared_ptr<LveModel> lveModel =
-      LveModel::createModelFromFile(lveDevice, "models/custom_vase.obj");
-
-  /*auto flatVase = LveGameObject::createGameObject();
-  flatVase.model = lveModel;
-  flatVase.transform.translation = {-.5f, .5f, 0.f};
-  flatVase.transform.scale = {3.f, 1.5f, 3.f};
-  
-  gameObjects.emplace(flatVase.getId(), std::move(flatVase));
-
-  lveModel = LveModel::createModelFromFile(lveDevice, "models/smooth_vase.obj");
-  auto smoothVase = LveGameObject::createGameObject();
-  smoothVase.model = lveModel;
-  smoothVase.transform.translation = {.5f, .5f, 0.f};
-  smoothVase.transform.scale = {3.f, 1.5f, 3.f};
-  gameObjects.emplace(smoothVase.getId(), std::move(smoothVase));*/
-
-
-  /*lveModel = LveModel::createModelFromFile(lveDevice, "models/triangle.obj");
-  auto triangle = LveGameObject::createGameObject();
-  triangle.model = lveModel;
-  triangle.transform.translation = {-1.5f, -.1f, 0.f};
-  triangle.transform.scale = {1.f, -1.f, 1.f};
-  gameObjects.emplace(triangle.getId(), std::move(triangle));*/
-
-  lveModel = LveModel::createModelFromFile(lveDevice, "models/quad.obj");
+  std::shared_ptr<LveModel> lveModel = LveModel::createModelFromFile(lveDevice, "models/quad.obj");
   auto floor = LveGameObject::createGameObject();
   floor.model = lveModel;
   floor.transform.translation = {0.f, .5f, 0.f};
-  floor.transform.scale = {6.f, 1.f, 6.f};
+  floor.transform.scale = {10.f, 2.f, 10.f};
   gameObjects.emplace(floor.getId(), std::move(floor));
 
- /*lveModel = LveModel::createModelFromFile(lveDevice, "models/cube/cube.obj");
-  auto floor = LveGameObject::createGameObject();
-  floor.model = lveModel;
-  floor.transform.translation = {0.f, .5f, 0.f};
-  floor.transform.scale = {3.f, 1.f, 3.f};
-  gameObjects.emplace(floor.getId(), std::move(floor));*/
-
-
-  
   lveModel = LveModel::createModelFromFile(lveDevice, "models/simple_model.obj");
   auto characterlowpoly2 = LveGameObject::createGameObject();
   characterlowpoly2.model = lveModel;
   characterlowpoly2.transform.translation = {1.f, -.2f, 0.f};
-  //characterlowpoly2.transform.scale = {1.f, 1.f, 1.f};
   characterlowpoly2.transform.scale = {.2f, .2f, .2f};
   gameObjects.emplace(characterlowpoly2.getId(), std::move(characterlowpoly2));
-
-  
-
 
   /*
   std::vector<glm::vec3> lightColors{
@@ -197,49 +159,94 @@ void FirstApp::loadGameObjects() {
     pointLight.transform.translation = glm::vec3(rotateLight * glm::vec4(-1.f, -1.f, -1.f, 1.f));
     gameObjects.emplace(pointLight.getId(), std::move(pointLight));
   }*/
-  
-
 }
 
 void FirstApp::loadSolarLight() {
-
   auto orangeLight = LveGameObject::makePointLight(350.2f);
   orangeLight.color = {1.f, 0.5f, 0.f};
-  //orangeLight.transform.translation = {-2.f, -20.f, -5.f};
-  orangeLight.transform.translation = {-2.f, -30.f, -5.f}; // radio? altura ?
-  //orangeLight.transform.scale = {10.f, 10.f, 10.f};
+  // orangeLight.transform.translation = {-2.f, -20.f, -5.f};
+  orangeLight.transform.translation = {-2.f, -30.f, -5.f};  // radio? altura ?
+  // orangeLight.transform.scale = {10.f, 10.f, 10.f};
   orangeLight.transform.scale = {1.f, 1.f, 1.f};
   gameObjects.emplace(orangeLight.getId(), std::move(orangeLight));
 }
 
 void FirstApp::loadTreeObjects() {
   std::shared_ptr<LveModel> lveModel =
-      LveModel::createModelFromFile(lveDevice, "models/park/Tree/3Trees.obj");  
+      LveModel::createModelFromFile(lveDevice, "models/park/Tree/3Trees.obj");
   auto tree = LveGameObject::createGameObject();
   tree.model = lveModel;
-  //tree.transform.translation = {1.f, .2f, 0.f};
+  // tree.transform.translation = {1.f, .2f, 0.f};
   tree.transform.scale = {.1f, .1f, .1f};
 
   tree.transform.translation = {.5f, .5f, 0.f};
-  //smoothVase.transform.scale = {3.f, 1.5f, 3.f};
+  // smoothVase.transform.scale = {3.f, 1.5f, 3.f};
 
-  //tree.transform.rotation = {0.f,0.f,5.f};
+  // tree.transform.rotation = {0.f,0.f,5.f};
   gameObjects.emplace(tree.getId(), std::move(tree));
 }
 
 void FirstApp::loadBenchObjects() {
   std::shared_ptr<LveModel> lveModel =
-      //LveModel::createModelFromFile(lveDevice, "models/park/bench/bench-1.obj");
-      LveModel::createModelFromFile(lveDevice, "models/park/bush/bush-1.obj");
+      LveModel::createModelFromFile(lveDevice, "models/park/bench/bench-1.obj");
+
   auto tree = LveGameObject::createGameObject();
   tree.model = lveModel;
-  tree.transform.translation = {-2.f, .5f, 4.f}; // x (positivo derecha) / y (positivo-> abajo .5 base) / z profundidad
+  tree.transform.translation = {
+      -2.f,
+      .5f,
+      4.f};  // x (positivo derecha) / y (positivo-> abajo .5 base) / z profundidad
   tree.transform.scale = {.5f, .5f, .5f};
-  tree.transform.rotation = {0.f, 2.f, 0.f}; // x inclinacion arriba abajo / giro sobre si misma / inclinacion hacia los lados
-  
+  tree.transform.rotation = {
+      0.f,
+      2.f,
+      0.f};  // x inclinacion arriba abajo / giro sobre si misma / inclinacion hacia los lados
 
   // tree.transform.rotation = {0.f,0.f,5.f};
   gameObjects.emplace(tree.getId(), std::move(tree));
+}
+
+void FirstApp::loadBushObjects() {
+  std::shared_ptr<LveModel> lveModel =
+      LveModel::createModelFromFile(lveDevice, "models/park/bush/bush-1.obj");
+
+  /*auto bush = LveGameObject::createGameObject();
+  bush.model = lveModel;
+  bush.transform.translation = {-2.f, .13f, 9.7f};
+  bush.transform.scale = {.5f, 1.f, .5f};
+  bush.transform.rotation = {0.f,2.f,0.f};  // x inclinacion arriba abajo / giro sobre si misma /  inclinacion hacia los lados
+  gameObjects.emplace(bush.getId(), std::move(bush));*/
+
+  for (int i = -10; i <= 10; i++) {
+    auto bush = LveGameObject::createGameObject();
+    bush.model = lveModel;
+    //bush.transform.translation = {-2.f, .13f, 9.7f};
+    bush.transform.translation = {-10.f, .13f, i * .9f};
+    bush.transform.scale = {.5f, 1.f, .5f};
+    bush.transform.rotation = {0.f,2.f,0.f}; 
+    gameObjects.emplace(bush.getId(), std::move(bush));
+    //
+    auto bushL = LveGameObject::createGameObject();
+    bushL.model = lveModel;
+    bushL.transform.translation = {10.f, .2f, i * .9f};
+    bushL.transform.scale = {.5f, 1.f, .5f};
+    bushL.transform.rotation = {0.f, 2.f, 0.f};  
+    gameObjects.emplace(bushL.getId(), std::move(bushL));
+    //
+    auto bush3 = LveGameObject::createGameObject();
+    bush3.model = lveModel;
+    bush3.transform.translation = {i * 1.f, .2f, 9.7f};
+    bush3.transform.scale = {.5f, 1.f, .5f};
+    bush3.transform.rotation = {0.f, 0.f, 0.f};
+    gameObjects.emplace(bush3.getId(), std::move(bush3));
+
+    auto bush4 = LveGameObject::createGameObject();
+    bush4.model = lveModel;
+    bush4.transform.translation = {i * 1.f, .2f, -9.7f};
+    bush4.transform.scale = {.5f, 1.f, .5f};
+    bush4.transform.rotation = {0.f, 0.f, 0.f};
+    gameObjects.emplace(bush4.getId(), std::move(bush4));
+  }
 }
 
 }  // namespace lve
