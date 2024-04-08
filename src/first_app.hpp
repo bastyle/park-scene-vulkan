@@ -13,8 +13,8 @@
 namespace lve {
 class FirstApp {
  public:
-  static constexpr int WIDTH = 800;
-  static constexpr int HEIGHT = 600;
+  static constexpr int WIDTH = 1366;
+  static constexpr int HEIGHT = 768;
 
   FirstApp();
   ~FirstApp();
@@ -30,8 +30,9 @@ class FirstApp {
   void loadSolarLight();
   void loadBenchObjects();
   void loadBushObjects();
+  void loadPlantObjects();
 
-  LveWindow lveWindow{WIDTH, HEIGHT, "Vulkan Tutorial"};
+  LveWindow lveWindow{WIDTH, HEIGHT, "GitGud Advanced Grapichs Final Project"};
   LveDevice lveDevice{lveWindow};
   LveRenderer lveRenderer{lveWindow, lveDevice};
 

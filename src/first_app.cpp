@@ -17,6 +17,8 @@
 #include <cassert>
 #include <chrono>
 #include <stdexcept>
+#include <cstdlib> // for rand() and srand()
+#include <ctime> // for time()
 
 namespace lve {
 
@@ -27,10 +29,11 @@ FirstApp::FirstApp() {
           .addPoolSize(VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, LveSwapChain::MAX_FRAMES_IN_FLIGHT)
           .build();
   loadGameObjects();
-  // loadTreeObjects();
+  loadTreeObjects();
   loadBenchObjects();
   loadBushObjects();
   loadSolarLight();
+  loadPlantObjects();
 }
 
 FirstApp::~FirstApp() {}
@@ -176,14 +179,19 @@ void FirstApp::loadTreeObjects() {
       LveModel::createModelFromFile(lveDevice, "models/park/Tree/3Trees.obj");
   auto tree = LveGameObject::createGameObject();
   tree.model = lveModel;
-  // tree.transform.translation = {1.f, .2f, 0.f};
-  tree.transform.scale = {.1f, .1f, .1f};
+  tree.transform.scale = {.3f, .3f, .3f};
+  tree.transform.translation = {-8.5f, .5f, 0.f};
+  //gameObjects.emplace(tree.getId(), std::move(tree));
 
-  tree.transform.translation = {.5f, .5f, 0.f};
-  // smoothVase.transform.scale = {3.f, 1.5f, 3.f};
+  lveModel = LveModel::createModelFromFile(lveDevice, "models/park/Tree01/tree01.obj");
+  auto tree2 = LveGameObject::createGameObject();
+  tree2.model = lveModel;
+  tree2.transform.scale = {.3f, .3f, .3f};
+  tree2.transform.translation = {-8.5f, .5f, 0.f};
+  gameObjects.emplace(tree2.getId(), std::move(tree2));
 
-  // tree.transform.rotation = {0.f,0.f,5.f};
-  gameObjects.emplace(tree.getId(), std::move(tree));
+
+
 }
 
 void FirstApp::loadBenchObjects() {
@@ -214,23 +222,23 @@ void FirstApp::loadBushObjects() {
   bush.model = lveModel;
   bush.transform.translation = {-2.f, .13f, 9.7f};
   bush.transform.scale = {.5f, 1.f, .5f};
-  bush.transform.rotation = {0.f,2.f,0.f};  // x inclinacion arriba abajo / giro sobre si misma /  inclinacion hacia los lados
-  gameObjects.emplace(bush.getId(), std::move(bush));*/
+  bush.transform.rotation = {0.f,2.f,0.f};  // x inclinacion arriba abajo / giro sobre si misma /
+  inclinacion hacia los lados gameObjects.emplace(bush.getId(), std::move(bush));*/
 
   for (int i = -10; i <= 10; i++) {
     auto bush = LveGameObject::createGameObject();
     bush.model = lveModel;
-    //bush.transform.translation = {-2.f, .13f, 9.7f};
+    // bush.transform.translation = {-2.f, .13f, 9.7f};
     bush.transform.translation = {-10.f, .13f, i * .9f};
     bush.transform.scale = {.5f, 1.f, .5f};
-    bush.transform.rotation = {0.f,2.f,0.f}; 
+    bush.transform.rotation = {0.f, 2.f, 0.f};
     gameObjects.emplace(bush.getId(), std::move(bush));
     //
     auto bushL = LveGameObject::createGameObject();
     bushL.model = lveModel;
     bushL.transform.translation = {10.f, .2f, i * .9f};
     bushL.transform.scale = {.5f, 1.f, .5f};
-    bushL.transform.rotation = {0.f, 2.f, 0.f};  
+    bushL.transform.rotation = {0.f, 2.f, 0.f};
     gameObjects.emplace(bushL.getId(), std::move(bushL));
     //
     auto bush3 = LveGameObject::createGameObject();
@@ -246,6 +254,41 @@ void FirstApp::loadBushObjects() {
     bush4.transform.scale = {.5f, 1.f, .5f};
     bush4.transform.rotation = {0.f, 0.f, 0.f};
     gameObjects.emplace(bush4.getId(), std::move(bush4));
+  }
+}
+
+void FirstApp::loadPlantObjects() {
+  /*std::shared_ptr<LveModel> lveModel =
+      LveModel::createModelFromFile(lveDevice, "models/park/plant/plant-1.obj");
+  auto plant = LveGameObject::createGameObject();
+  plant.model = lveModel;
+  plant.transform.translation = {-2.f,.5f,4.f};
+  plant.transform.scale = {.5f, .5f, .5f};
+  plant.transform.rotation = {0.f,2.f,3.1f};
+  gameObjects.emplace(plant.getId(), std::move(plant));*/
+  std::srand(std::time(nullptr));  // use current time as seed for random generator
+
+  std::shared_ptr<LveModel> lveModel =
+      LveModel::createModelFromFile(lveDevice, "models/park/plant/plant-1.obj");
+
+  int numPlants = 8 + std::rand() % 8;  // Random number between 8 and 15
+
+  for (int i = 0; i < numPlants; ++i) {
+    auto plant = LveGameObject::createGameObject();
+    plant.model = lveModel;
+
+    // Generate random position within the plane
+    float x = -10.f + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (20.f)));
+    float y = .5f;
+    float z = -10.f + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (20.f)));
+    // Generate random scale
+    float scale = 0.3f + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (0.7f)));
+
+    plant.transform.translation = {x, y, z};
+    //plant.transform.scale = {.5f, .5f, .5f};
+    plant.transform.scale = {scale, scale, scale};
+    plant.transform.rotation = {0.f, 2.f, 3.1f};
+    gameObjects.emplace(plant.getId(), std::move(plant));
   }
 }
 
