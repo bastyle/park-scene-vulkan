@@ -1,0 +1,57 @@
+# Blender MTL File: 'oaks.blend'
+# Material Count: 5
+
+newmtl Bark___1.jpg
+Ns 224.999983
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\centennial\\winter2024\\COMP392-graphics\\projects\\littleVulkanEngine-main\\models\\park\\22-trees_9_obj\\Texture\\Bark___1.jpg
+
+newmtl Bark___S.jpg
+Ns 224.999983
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\centennial\\winter2024\\COMP392-graphics\\projects\\littleVulkanEngine-main\\models\\park\\22-trees_9_obj\\Texture\\Bark___S.jpg
+
+newmtl Bottom_T.jpg
+Ns 224.999983
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\centennial\\winter2024\\COMP392-graphics\\projects\\littleVulkanEngine-main\\models\\park\\22-trees_9_obj\\Texture\\Bottom_T.jpg
+
+newmtl Mossy_Tr.jpg
+Ns 224.999983
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\centennial\\winter2024\\COMP392-graphics\\projects\\littleVulkanEngine-main\\models\\park\\22-trees_9_obj\\Texture\\Mossy_Tr.jpg
+
+newmtl Walnut_L.jpg
+Ns 224.999983
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\centennial\\winter2024\\COMP392-graphics\\projects\\littleVulkanEngine-main\\models\\park\\22-trees_9_obj\\Texture\\Walnut_L.jpg

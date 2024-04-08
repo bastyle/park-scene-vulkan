@@ -74,7 +74,8 @@ void FirstApp::run() {
   LveCamera camera{};
 
   auto viewerObject = LveGameObject::createGameObject();
-  viewerObject.transform.translation.z = -2.5f;
+  viewerObject.transform.translation.z = -9.5f;
+  viewerObject.transform.translation.y = -2.f;
   KeyboardMovementController cameraController{};
 
   auto currentTime = std::chrono::high_resolution_clock::now();
@@ -181,7 +182,7 @@ void FirstApp::loadTreeObjects() {
   tree.model = lveModel;
   tree.transform.scale = {.3f, .3f, .3f};
   tree.transform.translation = {-8.5f, .5f, 0.f};
-  //gameObjects.emplace(tree.getId(), std::move(tree));
+  gameObjects.emplace(tree.getId(), std::move(tree));
 
   lveModel = LveModel::createModelFromFile(lveDevice, "models/park/Tree01/tree01.obj");
   auto tree2 = LveGameObject::createGameObject();
@@ -189,6 +190,14 @@ void FirstApp::loadTreeObjects() {
   tree2.transform.scale = {.3f, .3f, .3f};
   tree2.transform.translation = {-8.5f, .5f, 0.f};
   gameObjects.emplace(tree2.getId(), std::move(tree2));
+
+
+   lveModel = LveModel::createModelFromFile(lveDevice, "models/park/oak/oaks.obj");
+  auto oaks = LveGameObject::createGameObject();
+   oaks.model = lveModel;
+  oaks.transform.scale = {.2f, .2f, .2f};
+   oaks.transform.translation = {-1.f, .5f, 8.7f};
+  gameObjects.emplace(oaks.getId(), std::move(oaks));
 
 
 
@@ -233,6 +242,7 @@ void FirstApp::loadBushObjects() {
     bush.transform.scale = {.5f, 1.f, .5f};
     bush.transform.rotation = {0.f, 2.f, 0.f};
     gameObjects.emplace(bush.getId(), std::move(bush));
+
     //
     auto bushL = LveGameObject::createGameObject();
     bushL.model = lveModel;
